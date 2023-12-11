@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Image from 'next/image';
+import Image from "next/image";
 
 interface WeatherData {
   city: string;
@@ -54,6 +54,8 @@ const WeatherDisplay: React.FC<WeatherDisplayProps> = ({
     return <div className="text-center">Aucune donnée météo disponible.</div>;
   }
 
+  console.log("=========>", weatherData.weather.icon);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -76,6 +78,8 @@ const WeatherDisplay: React.FC<WeatherDisplayProps> = ({
           <Image
             src={`http://openweathermap.org/img/wn/${weatherData.weather.icon}.png`}
             alt={weatherData.weather.description}
+            width={80} // La largeur de l'image en pixels
+            height={80} // La hauteur de l'image en pixels
             className="w-20 h-20"
           />
           <p className="text-4xl ml-3">{`${kelvinToCelsius(
