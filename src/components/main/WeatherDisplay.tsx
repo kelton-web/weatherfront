@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from 'next/image';
 
 interface WeatherData {
   city: string;
@@ -72,7 +73,7 @@ const WeatherDisplay: React.FC<WeatherDisplayProps> = ({
 
         <p className="text-2xl font-bold">{`${weatherData.city}, ${weatherData.country}`}</p>
         <div className="flex justify-center items-center mt-3">
-          <img
+          <Image
             src={`http://openweathermap.org/img/wn/${weatherData.weather.icon}.png`}
             alt={weatherData.weather.description}
             className="w-20 h-20"
